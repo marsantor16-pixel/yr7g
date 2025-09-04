@@ -133,6 +133,9 @@ pnpm dev
 
 ## credits
 made with <3 by cl1pped
-uv staticified by corn unblocked
+
+thanks to corn unblocked for making uv completely static
+
 uv made by titanium network
+
 and thank you to all the contributors.
