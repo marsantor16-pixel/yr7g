@@ -10,12 +10,10 @@
   - bug reporting
   - security reporting
 - faq
-- delpoyment
+- deployment
   - static hosts
   - local deployment
   - development
-    - customisability
-    - basics
 - credits
 
 ### features
@@ -77,3 +75,64 @@ going the extra mile? open a pr if you have a patch for the bug. truly appreciat
 
 ### reporting security issues
 same thing as above
+
+## faq
+coming soon
+
+
+## deployment
+
+### static hosts
+you can deploy to any static host basically, including the following
+
+- vercel
+- cloudflare pages
+- netlify
+- firebase
+
+### local deployment
+first, clone the repository by running this command
+```bash
+git clone https://github.com/adurite-network/ethreal
+cd ethreal
+```
+
+then install the dependencies using your package manager of choice
+```bash
+pnpm i
+```
+
+now build the files
+
+```bash
+pnpm run build
+```
+
+and finally run a server
+```bash
+pnpm start
+```
+
+### development
+now if you're tryna develop for this program, the process is similar
+
+install the dependencies using your package manager
+```bash
+pnpm i
+```
+
+build the files
+```bash
+pnpm run build
+```
+
+and finally start a server
+```bash
+pnpm dev
+```
+
+## credits
+made with <3 by cl1pped
+uv staticified by corn unblocked
+uv made by titanium network
+and thank you to all the contributors.
