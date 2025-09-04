@@ -28,7 +28,7 @@
 - support for popular sites
 - support for emulators
 
-###### [(back to the top)](#readme-top)
+<sub> [(back to the top)](#readme-top)</sub>
 
 ### proxy support
 - easyfun.gg (now.gg alternative)
@@ -41,7 +41,7 @@
 - google services
 - lots of other websites
 
-###### [(back to the top)](#readme-top)
+<sub> [(back to the top)](#readme-top)</sub>
 
 ## customisation
 basically anything can be customised on this website, including the following
@@ -58,40 +58,40 @@ basically anything can be customised on this website, including the following
 - panic link
 - panic keybind
 - toolbar location
-- adblock
+- adblock (on/off)
 - blocked websites
-- auto a:b (about blank)
-- auto blob cloak
+- auto about:blank (on/off)
+- auto blob cloak (on/off)
 - password protection
-- dev data
+- devops (on/off)
 
-###### [(back to the top)](#readme-top)
+<sub> [(back to the top)](#readme-top)</sub>
 
 ## roadmap
 1. add scramjet support
 2. get custom domain
-3. add support for extension killing
+3. add support for extension killing (e.g. stopping goguardian)
 
 more will be added soon.
 
-###### [(back to the top)](#readme-top)
+<sub> [(back to the top)](#readme-top)</sub>
 
 ## reporting bugs
 if you found a bug on the website, report it to us using the issues page. we have bug templates, so we request you use those. if your issue is not equipped with necessary info or is not clear (e.g. 'the website isnt working'), **we will ignore it.**
 
 going the extra mile? open a pr if you have a patch for the bug. truly appreciated + you will be credited.
 
-###### [(back to the top)](#readme-top)
+<sub> [(back to the top)](#readme-top)</sub>
 
 ## reporting security issues
 same thing as above
 
-###### [(back to the top)](#readme-top)
+<sub> [(back to the top)](#readme-top)</sub>
 
 ## faq
 coming soon
 
-###### [(back to the top)](#readme-top)
+<sub> [(back to the top)](#readme-top)</sub>
 
 ## deployment
 
@@ -103,7 +103,7 @@ you can deploy to any static host basically, including the following
 - netlify
 - firebase
 
-###### [(back to the top)](#readme-top)
+<sub> [(back to the top)](#readme-top)</sub>
 
 ### local deployment
 first, clone the repository by running this command
@@ -128,7 +128,7 @@ and finally run a server
 pnpm start
 ```
 
-###### [(back to the top)](#readme-top)
+<sub> [(back to the top)](#readme-top)</sub>
 
 ### development
 now if you're tryna develop for this program, the process is similar
@@ -148,7 +148,7 @@ and finally start a server
 pnpm dev
 ```
 
-###### [(back to the top)](#readme-top)
+<sub> [(back to the top)](#readme-top)</sub>
 
 ## credits
 made with <3 by cl1pped
@@ -159,4 +159,4 @@ uv made by titanium network
 
 and thank you to all the contributors.
 
-###### [(back to the top)](#readme-top)
+<sub> [(back to the top)](#readme-top)</sub>
