@@ -16,7 +16,7 @@
   - development
 - credits
 
-### features
+## features
 - tabs
 - ultraviolet
 - cloaks
@@ -43,7 +43,7 @@
 
 ###### [(back to the top)](#readme-top)
 
-### customisation
+## customisation
 basically anything can be customised on this website, including the following
 
 - colors
@@ -67,7 +67,7 @@ basically anything can be customised on this website, including the following
 
 ###### [(back to the top)](#readme-top)
 
-### roadmap
+## roadmap
 1. add scramjet support
 2. get custom domain
 3. add support for extension killing
@@ -76,14 +76,14 @@ more will be added soon.
 
 ###### [(back to the top)](#readme-top)
 
-### reporting bugs
+## reporting bugs
 if you found a bug on the website, report it to us using the issues page. we have bug templates, so we request you use those. if your issue is not equipped with necessary info or is not clear (e.g. 'the website isnt working'), **we will ignore it.**
 
 going the extra mile? open a pr if you have a patch for the bug. truly appreciated + you will be credited.
 
 ###### [(back to the top)](#readme-top)
 
-### reporting security issues
+## reporting security issues
 same thing as above
 
 ###### [(back to the top)](#readme-top)
