@@ -1,4 +1,4 @@
-<h1 align="center" id="readme-top">ethreal.</h1>
+<h1 align="center" id="readme-top">ethereal.</h1>
 <p align="center">a sleek proxy with speed, design, and usability in mind. easy to deploy to any static host.</p>
 
 ## table of contents
