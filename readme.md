@@ -1,4 +1,4 @@
-<h1 align="center">ethreal.</h1>
+<h1 align="center" id="readme-top">ethreal.</h1>
 <p align="center">a sleek proxy with speed, design, and usability in mind. easy to deploy to any static host.</p>
 
 ## table of contents
@@ -28,6 +28,8 @@
 - support for popular sites
 - support for emulators
 
+###### [(back to the top)](#readme-top)
+
 ### proxy support
 - easyfun.gg (now.gg alternative)
 - youtube
@@ -38,6 +40,8 @@
 - discord/guilded
 - google services
 - lots of other websites
+
+###### [(back to the top)](#readme-top)
 
 ### customisation
 basically anything can be customised on this website, including the following
@@ -61,6 +65,8 @@ basically anything can be customised on this website, including the following
 - password protection
 - dev data
 
+###### [(back to the top)](#readme-top)
+
 ### roadmap
 1. add scramjet support
 2. get custom domain
@@ -68,17 +74,24 @@ basically anything can be customised on this website, including the following
 
 more will be added soon.
 
+###### [(back to the top)](#readme-top)
+
 ### reporting bugs
 if you found a bug on the website, report it to us using the issues page. we have bug templates, so we request you use those. if your issue is not equipped with necessary info or is not clear (e.g. 'the website isnt working'), **we will ignore it.**
 
 going the extra mile? open a pr if you have a patch for the bug. truly appreciated + you will be credited.
 
+###### [(back to the top)](#readme-top)
+
 ### reporting security issues
 same thing as above
+
+###### [(back to the top)](#readme-top)
 
 ## faq
 coming soon
 
+###### [(back to the top)](#readme-top)
 
 ## deployment
 
@@ -89,6 +102,8 @@ you can deploy to any static host basically, including the following
 - cloudflare pages
 - netlify
 - firebase
+
+###### [(back to the top)](#readme-top)
 
 ### local deployment
 first, clone the repository by running this command
@@ -113,6 +128,8 @@ and finally run a server
 pnpm start
 ```
 
+###### [(back to the top)](#readme-top)
+
 ### development
 now if you're tryna develop for this program, the process is similar
 
@@ -131,6 +148,8 @@ and finally start a server
 pnpm dev
 ```
 
+###### [(back to the top)](#readme-top)
+
 ## credits
 made with <3 by cl1pped
 
@@ -139,3 +158,5 @@ thanks to corn unblocked for making uv completely static
 uv made by titanium network
 
 and thank you to all the contributors.
+
+###### [(back to the top)](#readme-top)
