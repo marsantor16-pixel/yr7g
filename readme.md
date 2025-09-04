@@ -108,8 +108,8 @@ you can deploy to any static host basically, including the following
 ### local deployment
 first, clone the repository by running this command
 ```bash
-git clone https://github.com/adurite-network/ethreal
-cd ethreal
+git clone https://github.com/adurite-network/ethereal
+cd ethereal
 ```
 
 then install the dependencies using your package manager of choice
