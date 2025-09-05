@@ -9,30 +9,30 @@ import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 
 // https://vite.dev/config/
 export default defineConfig({
-    base: "",
-    plugins: [
-        svelte(),
-        tailwindcss(),
-        viteStaticCopy({
-            targets: [
-                {
-                    src: uvPath + "/*.*js",
-                    dest: "uv",
-                    overwrite: false, // preserve our custom uv.config.js
-                },
-                {
-                    src: bareModulePath + "/*.*js",
-                    dest: "baremod",
-                },
-                {
-                    src: libcurlPath + "/*.*js",
-                    dest: "libcurl",
-                },
-                {
-                    src: baremuxPath + "/*.*js",
-                    dest: "baremux",
-                },
-            ]
-        }),
-    ],
-})
+  base: "",
+  plugins: [
+    svelte(),
+    tailwindcss(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: "node_modules/@titaniumnetwork-dev/ultraviolet/dist/*.js",
+          dest: "uv",
+          overwrite: false, // preserve our custom uv.config.js
+        },
+        {
+          src: "node_modules/@mercuryworkshop/bare-as-module3/dist/*.js",
+          dest: "baremod",
+        },
+        {
+          src: "node_modules/@mercuryworkshop/libcurl-transport/dist/*.js",
+          dest: "libcurl",
+        },
+        {
+          src: "node_modules/@mercuryworkshop/bare-mux/dist/*.js",
+          dest: "baremux",
+        },
+      ],
+    }),
+  ],
+});

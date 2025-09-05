@@ -1,9 +1,9 @@
 import { BareMuxConnection } from "@mercuryworkshop/bare-mux";
 import ProxyComponent from "./Proxy.svelte";
-import config from "./config.svelte";
-import { httpUrlToWebSocket } from "./util";
-import autoProxyProber from "./prober.svelte";
-import { adBlocklist } from "./adBlocklist";
+import config from "./config.svelte.ts";
+import { httpUrlToWebSocket } from "./util.ts";
+import autoProxyProber from "./prober.svelte.ts";
+import { adBlocklist } from "./adBlocklist.ts";
 
 interface UvConfig {
     prefix: string;

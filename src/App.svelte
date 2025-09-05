@@ -1,10 +1,10 @@
 <script lang="ts">
     import Config from "./Config.svelte";
     import Proxy from "./Proxy.svelte";
-    import config from "./config.svelte";
-    import proxyManager from "./proxy.svelte";
-    import { onEnterKeyPressed } from "./util";
-    import autoProxyProber from "./prober.svelte";
+    import config from "./config.svelte.ts";
+    import proxyManager from "./proxy.svelte.ts";
+    import { onEnterKeyPressed } from "./util.ts";
+    import autoProxyProber from "./prober.svelte.ts";
 
     $effect(() => {
         if (config.useBare && config.bareSelectedProxy === "auto") {

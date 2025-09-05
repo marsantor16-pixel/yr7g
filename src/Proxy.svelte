@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { splashText } from "./corn";
+    import { splashText } from "./corn.ts";
     import Navbar from "./Navbar.svelte";
-    import proxyManager from "./proxy.svelte";
+    import proxyManager from "./proxy.svelte.ts";
 
     let iframe: HTMLIFrameElement = $state();
     let iframeHasLoaded = $state(false);

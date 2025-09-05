@@ -1,7 +1,7 @@
 <script lang="ts">
-    import config, { saveConfig } from "./config.svelte";
-    import { bareProxyUrls, wispProxyUrls } from "./corn";
-    import proxyManager, { ServiceWorkerConfig } from "./proxy.svelte";
+    import config, { saveConfig } from "./config.svelte.ts";
+    import { bareProxyUrls, wispProxyUrls } from "./corn.ts";
+    import proxyManager, { ServiceWorkerConfig } from "./proxy.svelte.ts";
 
     let { isConfigOpen = $bindable() }: { isConfigOpen: boolean } = $props();
     let modalElement: HTMLDialogElement = $state();

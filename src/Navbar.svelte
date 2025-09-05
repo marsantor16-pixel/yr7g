@@ -1,7 +1,7 @@
 <script lang="ts">
-    import proxyManager from "./proxy.svelte";
-    import { onEnterKeyPressed } from "./util";
-    import { History } from "./history";
+    import proxyManager from "./proxy.svelte.ts";
+    import { onEnterKeyPressed } from "./util.ts";
+    import { History } from "./history.ts";
 
     let { iframe }: { iframe: HTMLIFrameElement } = $props();
 

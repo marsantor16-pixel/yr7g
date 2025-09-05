@@ -1,5 +1,5 @@
-import { bareProxyUrls, wispProxyUrls } from "./corn";
-import config from "./config.svelte";
+import { bareProxyUrls, wispProxyUrls } from "./corn.ts";
+import config from "./config.svelte.ts";
 
 class Prober {
     public wispUrl: string = $state("");
