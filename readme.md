@@ -101,9 +101,9 @@ coming soon
 ### static hosts
 you can deploy to any static host basically, including the following
 
-- vercel
+- vercel (not recommended, some sites will break)
 - cloudflare pages
-- netlify
+- netlify (recommended)
 - firebase
 
 <sub> [(back to the top)](#readme-top)</sub>
