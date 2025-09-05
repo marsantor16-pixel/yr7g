@@ -105,6 +105,11 @@ you can deploy to any static host basically, including the following
 - cloudflare pages
 - netlify (recommended)
 - firebase
+- github pages (not recommended, some sites will break)
+
+you could also use the dedicated buttons below for deployments
+
+
 
 <sub> [(back to the top)](#readme-top)</sub>
 
