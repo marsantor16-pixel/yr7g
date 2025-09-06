@@ -84,7 +84,7 @@
         <iframe
             bind:this={iframe}
             title="Proxy"
-            class="w-full h-[91vh] bg-black rounded-b-2xl shadow-lg shadow-black/20"
+            class="w-full h-[91vh] bg-transparent rounded-b-2xl shadow-lg shadow-black/20"
             src={proxyManager.iframeUrl || "https://google.com/"}
             onload={onIframeLoad}
             allow={iframeAllow}
