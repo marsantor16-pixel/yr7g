@@ -35,13 +35,16 @@
     function startProxy() {
         if (proxyManager.startProxy(destinationInput)) {
             destinationInput = "";
+
         }
     }
 
     let iframeHasLoaded = $state(false);
-    let proxyStarted = $state(false);
+    let isProxyOpen = $state(false)
 
     let iframe: HTMLIFrameElement = $state();
+
+    const searchbar = document.getElementById("searchbar") as HTMLInputElement
 
     const iframeAllow =
         "accelerometer ambient-light-sensor attribution-reporting autoplay bluetooth browsing-topics camera compute-pressure " +
@@ -62,9 +65,11 @@
         if (!src.includes(proxyManager.uvConfig.prefix)) return;
 
         iframeHasLoaded = true;
+
         proxyManager.url = proxyManager.uvConfig.decodeUrl(
             src.slice(proxyManager.uvConfig.prefix.length),
         );
+
     }
 
     let proxyHistory = new History();
@@ -118,13 +123,14 @@
             type="text"
             class="input max-w-2/3 h-8 min-w-2/3 rounded-full p-5 focus:outline-none"
             title="Destination URL"
+            id="searchbar"
             placeholder="search anything..."
             onkeydown={onEnterKeyPressed(startProxy)}
-            {@attach (urlBar: HTMLInputElement) => {
-                urlBar.focus();
-            }}
             bind:value={destinationInput}
         />
+        <span
+            class="loading loading-spinner scale-75 loading-xl ml-[-3.5%] mb-[0%] mr-1.5 z-1000 transition-all" style="display: none;" bind:this={loader}>
+        </span>
         <button
             class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
             title="Start proxy"
@@ -180,6 +186,7 @@
             type="text"
             class="input max-w-2/3 h-8 min-w-2/3 rounded-full p-5 focus:outline-none"
             title="Destination URL"
+            id="searchbar"
             placeholder="search anything..."
             onkeydown={onEnterKeyPressed(startProxy)}
             {@attach (urlBar: HTMLInputElement) => {
@@ -187,6 +194,9 @@
             }}
             bind:value={destinationInput}
         />
+        <span
+            class="loading loading-spinner scale-75 loading-xl ml-[-3.5%] mb-[0%] mr-1.5 z-1000 transition-all" style="display: none;" bind:this={loader}>
+        </span>
         <button
             class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
             title="Start proxy"
@@ -213,9 +223,5 @@
         <h1 class="text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-300">ethereal</h1>
         <p>a sleek proxy with speed, design, and usability in mind.</p>
     </div>
-{/if}
-{#if !iframeHasLoaded}
-    <span
-        class="loading loading-spinner scale-75 loading-xl ml-[-3%] mb-[0%] mr-1 z-1000 transition-all"
-    ></span>
+
 {/if}
