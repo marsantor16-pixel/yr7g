@@ -4,6 +4,12 @@
 <h1 align="center" id="readme-top">ethereal.</h1>
 <p align="center">a sleek proxy with speed, design, and usability in mind. easy to deploy to any static host.</p>
 
+<center>
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/65c3ecb1-9c6f-4f3e-994b-3542cf5c9ebd/deploy-status)](https://app.netlify.com/projects/etherealproxy/deploys)
+
+</center>
+
 ## table of contents
 - about
   - features
