@@ -1,9 +1,12 @@
 import { BareMuxConnection } from "@mercuryworkshop/bare-mux";
 import ProxyComponent from "./Proxy.svelte";
-import config from "./config.svelte.ts";
-import { httpUrlToWebSocket } from "./util.ts";
-import autoProxyProber from "./prober.svelte.ts";
-import { adBlocklist } from "./adBlocklist.ts";
+import config from "./config.svelte";
+import { httpUrlToWebSocket } from "./util";
+import autoProxyProber from "./prober.svelte";
+import { adBlocklist } from "./adBlocklist";
+
+let iframeHasLoaded = $state(true);
+let proxyStarted = $state(false);
 
 interface UvConfig {
     prefix: string;
@@ -134,12 +137,14 @@ export class ProxyManager {
     }
 
     startProxy(destinationInput: string): boolean {
-        // poke the service worker to get it started up again
         if (proxyManager.proxyUrl === "" || !proxyManager.serviceWorker)
             return false;
+    
         proxyManager.setDestination(destinationInput);
         proxyManager.isProxyOpen = true;
+        console.log("States updated")
         proxyManager.reloadIframe();
+    
         return true;
     }
 }

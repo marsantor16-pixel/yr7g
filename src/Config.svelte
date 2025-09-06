@@ -1,7 +1,7 @@
 <script lang="ts">
-    import config, { saveConfig } from "./config.svelte.ts";
-    import { bareProxyUrls, wispProxyUrls } from "./corn.ts";
-    import proxyManager, { ServiceWorkerConfig } from "./proxy.svelte.ts";
+    import config, { saveConfig } from "./config.svelte";
+    import { bareProxyUrls, wispProxyUrls } from "./corn";
+    import proxyManager, { ServiceWorkerConfig } from "./proxy.svelte";
 
     let { isConfigOpen = $bindable() }: { isConfigOpen: boolean } = $props();
     let modalElement: HTMLDialogElement = $state();
@@ -21,24 +21,49 @@
     $effect(() => {
         proxyManager.updateSWConfig(new ServiceWorkerConfig(config.adblock));
     });
+
+    if (document.title) {
+        document.title = localStorage.getItem("tabTitle") || "ethereal";
+    }
+
+    const faviconElement =
+        document.querySelector<HTMLLinkElement>('link[rel="icon"]');
+
+    if (faviconElement) {
+        faviconElement.href = localStorage.getItem("faviconUrl") || "logo.png";
+    }
+
+    let titleInput;
+    let faviconInput;
+
+    if (titleInput && faviconInput) {
+        titleInput.value = localStorage.getItem("tabTitle");
+        faviconInput.value = localStorage.getItem("faviconUrl");
+    }
 </script>
 
 <dialog
-    class="modal z-50"
+    class="modal z-50 rounded-2xl"
     bind:this={modalElement}
     onclose={() => (isConfigOpen = false)}
 >
-    <div class="modal-box flex flex-col items-center gap-5 h-1/2">
-        <p class="text-4xl">Settings</p>
+    <div
+        class="modal-box flex flex-col items-center gap-5 h-3/5 rounded-3xl bg-zinc-900"
+    >
+        <p class="text-4xl font-extrabold">Settings</p>
         <div class="flex flex-col items-center grow-1 justify-center w-1/1">
             <div class="grid grid-cols-2 gap-5 w-1/1">
-                <p class="flex items-center justify-center">Proxy Backend</p>
-                <div class="dropdown">
-                    <div tabindex="0" role="button" class="btn w-1/1">
+                <p class="flex items-center justify-center">wisp or bare?</p>
+                <div class="dropdown rounded-xl">
+                    <div
+                        tabindex="0"
+                        role="button"
+                        class="btn w-1/1 rounded-xl bg-zinc-800"
+                    >
                         {config.useBare ? "Bare" : "Wisp"}
                     </div>
                     <ul
-                        class="dropdown-content menu bg-base-100 rounded-box p-2 shadow-sm w-1/1"
+                        class="dropdown-content menu bg-zinc-800 rounded-xl p-2 shadow-transparent w-1/1"
                     >
                         <li>
                             <button
@@ -62,15 +87,19 @@
                         </li>
                     </ul>
                 </div>
-                <p class="flex items-center justify-center">Proxy Server</p>
-                <div class="dropdown">
-                    <div tabindex="0" role="button" class="btn w-1/1">
+                <p class="flex items-center justify-center">wisp/bare server</p>
+                <div class="dropdown rounded-xl shadow-transparent bg-zinc-800">
+                    <div
+                        tabindex="0"
+                        role="button"
+                        class="btn w-1/1 shadow-transparent rounded-xl bg-zinc-800"
+                    >
                         {config.useBare
                             ? bareProxyUrls[config.bareSelectedProxy]
                             : wispProxyUrls[config.wispSelectedProxy]}
                     </div>
                     <ul
-                        class="dropdown-content menu bg-base-100 rounded-box p-2 shadow-sm w-1/1 block overflow-y-scroll max-h-30"
+                        class="dropdown-content rounded-xl menu bg-zinc-800 rounded-box p-2 w-1/1 block overflow-y-scroll max-h-30"
                     >
                         {#each Object.entries(config.useBare ? bareProxyUrls : wispProxyUrls) as [proxyUrl, proxyName]}
                             <li>
@@ -95,7 +124,7 @@
                         Custom Proxy URL
                     </p>
                     <input
-                        class="input w-1/1 text-center"
+                        class="input w-1/1 text-center bg-zinc-800 rounded-xl"
                         bind:value={
                             () =>
                                 config.useBare
@@ -111,17 +140,73 @@
                         }
                     />
                 {/if}
-                <p class="flex items-center justify-center">Adblock</p>
+                <p class="flex items-center justify-center">adblock</p>
                 <div class="flex items-center justify-center">
                     <input
                         type="checkbox"
-                        class="checkbox"
+                        class="checkbox checkbox-info"
                         bind:checked={config.adblock}
                     />
                 </div>
+                <p class="flex items-center justify-center">custom tab title</p>
+                <div class="flex items-center justify-center">
+                    <input
+                        class="input w-1/1 text-center bg-zinc-800 rounded-xl"
+                        onkeyup={(e) => {
+                            document.title = (
+                                e.target as HTMLInputElement
+                            ).value;
+                            localStorage.setItem(
+                                "tabTitle",
+                                (e.target as HTMLInputElement).value,
+                            );
+                        }}
+                        bind:this={titleInput}
+                    />
+                </div>
+                <p class="flex items-center justify-center">favicon url</p>
+                <div class="flex items-center justify-center">
+                    <input
+                        class="input w-1/1 text-center bg-zinc-800 rounded-xl"
+                        onkeyup={(e) => {
+                            if (faviconElement) {
+                                faviconElement.href = (
+                                    e.target as HTMLInputElement
+                                ).value;
+                            }
+                            localStorage.setItem(
+                                "faviconUrl",
+                                (e.target as HTMLInputElement).value,
+                            );
+                        }}
+                        bind:this={faviconInput}
+                    />
+                </div>
+                <p class="flex items-center justify-center">about:blank</p>
+                <div class="flex items-center justify-center">
+                    <button
+                        class="btn rounded-xl bg-zinc-800 w-full"
+                        onclick={() => {
+                            var win = window.open()
+                            const url = "https://etherealproxy.netlify.app/"
+
+                            win.document.body.style.margin = 0
+                            win.document.body.style.height = "100vh"
+                            var iframe = win.document.createElement('iframe')
+                            iframe.style.border = "none"
+                            iframe.style.width = "100%"
+                            iframe.style.height = "100vh"
+                            iframe.style.margin = 0
+                            iframe.src = url 
+                            win.document.body.appendChild(iframe)
+                        }}>open a:b</button
+                    >
+                </div>
             </div>
         </div>
-        <button class="btn" onclick={() => (isConfigOpen = false)}>Close</button
+        <button
+            class="btn rounded-xl bg-zinc-800"
+            onclick={() => (isConfigOpen = false)}>Close</button
         >
     </div>
     <form method="dialog" class="modal-backdrop">

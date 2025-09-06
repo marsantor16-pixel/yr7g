@@ -19,6 +19,7 @@ export class Config {
     public wispCustomProxy: string = $state("");
     public bareSelectedProxy: string = $state("auto");
     public bareCustomProxy: string = $state("");
+    public tabTitle: string = $state("")
     // auto detect proxy timeout (ms)
     public probeTimeout: number = $state(5000);
     public adblock: boolean = $state(false);

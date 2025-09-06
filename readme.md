@@ -15,14 +15,18 @@
 - faq
 - deployment
   - static hosts
+    - deployment buttons
+    - firebase instructions
+    - github pages instructions
   - local deployment
   - development
 - credits
 
-## features
-- tabs
+## about
+### features
 - ultraviolet
 - cloaks
+- about:blank cloaking
 - server selection
 - theming
 - sidebar location selection
@@ -46,47 +50,39 @@
 
 <sub> [(back to the top)](#readme-top)</sub>
 
-## customisation
-basically anything can be customised on this website, including the following
+### customisation
+a lot of things can be customised on this website, including the following
 
-- colors
 - favicon
 - tab title
-- search engine
 - wisp server
 - bare server
-- wisp or bare
-- proxy service
-- proxy transport
+- wisp or bare (toggle)
 - panic link
 - panic keybind
-- toolbar location
 - adblock (on/off)
-- blocked websites
-- auto about:blank (on/off)
-- auto blob cloak (on/off)
-- password protection
-- devops (on/off)
 
 <sub> [(back to the top)](#readme-top)</sub>
 
-## roadmap
+### roadmap
 1. add scramjet support
-2. get custom domain
-3. add support for extension killing (e.g. stopping goguardian)
+2. add support for extension killing (e.g. stopping goguardian)
+3. add themes
+4. add auto a:b and blob:
+5. get custom domain
 
 more will be added soon.
 
 <sub> [(back to the top)](#readme-top)</sub>
 
-## reporting bugs
+### reporting bugs
 if you found a bug on the website, report it to us using the issues page. we have bug templates, so we request you use those. if your issue is not equipped with necessary info or is not clear (e.g. 'the website isnt working'), **we will ignore it.**
 
 going the extra mile? open a pr if you have a patch for the bug. truly appreciated + you will be credited.
 
 <sub> [(back to the top)](#readme-top)</sub>
 
-## reporting security issues
+### reporting security issues
 same thing as above
 
 <sub> [(back to the top)](#readme-top)</sub>
@@ -212,3 +208,5 @@ uv made by titanium network
 and thank you to all the contributors.
 
 <sub> [(back to the top)](#readme-top)</sub>
+
+<sub><sub></sub>alr have a nice day<sub></sub></sub>

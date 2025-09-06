@@ -1,7 +1,6 @@
 <script lang="ts">
-    import { splashText } from "./corn.ts";
-    import Navbar from "./Navbar.svelte";
-    import proxyManager from "./proxy.svelte.ts";
+    import { splashText } from "./corn";
+    import proxyManager from "./proxy.svelte";
 
     let iframe: HTMLIFrameElement = $state();
     let iframeHasLoaded = $state(false);
@@ -54,6 +53,4 @@
         allow={iframeAllow}
         sandbox={iframeSandbox}
     ></iframe>
-
-    <Navbar {iframe}></Navbar>
 </div>

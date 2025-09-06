@@ -1,10 +1,20 @@
 <script lang="ts">
     import Config from "./Config.svelte";
     import Proxy from "./Proxy.svelte";
-    import config from "./config.svelte.ts";
-    import proxyManager from "./proxy.svelte.ts";
-    import { onEnterKeyPressed } from "./util.ts";
-    import autoProxyProber from "./prober.svelte.ts";
+    import config from "./config.svelte";
+    import proxyManager from "./proxy.svelte";
+    import { onEnterKeyPressed } from "./util";
+    import autoProxyProber from "./prober.svelte";
+    import { History } from "./history";
+    import {
+        Search,
+        Settings2,
+        MessageCircleQuestionMark,
+        RotateCw,
+        ArrowRight,
+        ArrowLeft,
+        AppWindow
+    } from "@lucide/svelte";
 
     $effect(() => {
         if (config.useBare && config.bareSelectedProxy === "auto") {
@@ -27,80 +37,180 @@
             destinationInput = "";
         }
     }
+
+    let iframeHasLoaded = $state(false);
+    let proxyStarted = $state(false);
+
+    let iframe: HTMLIFrameElement = $state();
+
+    const iframeAllow =
+        "accelerometer ambient-light-sensor attribution-reporting autoplay bluetooth browsing-topics camera compute-pressure " +
+        "cross-origin-isolated display-capture document-domain encrypted-media fullscreen gamepad geolocation gyroscope hid " +
+        "identity-credentials-get idle-detection local-fonts magnetometer microphone midi otp-credentials payment " +
+        "picture-in-picture publickey-credentials-create publickey-credentials-get screen-wake-lock serial speaker-selection " +
+        "storage-access usb web-share window-management xr-spatial-tracking";
+
+    const iframeSandbox =
+        "allow-popups allow-popups-to-escape-sandbox allow-downloads allow-forms allow-modals allow-orientation-lock " +
+        "allow-pointer-lock allow-presentation allow-same-origin allow-scripts allow-storage-access-by-user-activation";
+
+    function onIframeLoad() {
+        // idek how this can happen but apparently it can
+        if (iframe == undefined) return;
+        // do not set proxyManager.url if the iframe hasn't hooked into the manager yet
+        const src = iframe.contentWindow.location.pathname;
+        if (!src.includes(proxyManager.uvConfig.prefix)) return;
+
+        iframeHasLoaded = true;
+        proxyManager.url = proxyManager.uvConfig.decodeUrl(
+            src.slice(proxyManager.uvConfig.prefix.length),
+        );
+    }
+
+    let proxyHistory = new History();
+    $effect(() => {
+        proxyHistory.addToHistory(proxyManager.url);
+    });
+
+    function setUrl(url: string | null) {
+        if (url == null) return;
+        proxyManager.url = url;
+        proxyManager.reloadIframe();
+    }
 </script>
 
 {#if proxyManager.isProxyOpen}
-    <Proxy></Proxy>
+    <div>
+        <iframe
+            bind:this={iframe}
+            title="Proxy"
+            class="w-full h-[91vh] bg-black rounded-b-2xl shadow-lg shadow-black/20"
+            src={proxyManager.iframeUrl || "https://google.com/"}
+            onload={onIframeLoad}
+            allow={iframeAllow}
+            sandbox={iframeSandbox}
+        ></iframe>
+    </div>
+    <Config bind:isConfigOpen></Config>
+
+    <div
+        class="flex grow-1 bottom-0 fixed w-full bg-transparent h-[9%] items-center justify-center"
+    >
+    <button
+            class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-0 mr-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
+            title="Start proxy"
+            onclick={() => setUrl(proxyHistory.goBackward())}
+            ><ArrowLeft class="scale-95 transition-all" /></button
+        > 
+    <button
+            class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-0 mr-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
+            title="Start proxy"
+            onclick={() => setUrl(proxyHistory.goForward())}
+            ><ArrowRight class="scale-95 transition-all" /></button
+        >    
+    <button
+            class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-0 mr-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
+            title="Start proxy"
+            onclick={() => iframe.contentWindow.location.reload()}
+            ><RotateCw class="scale-95 transition-all" /></button
+        >
+        <input
+            type="text"
+            class="input max-w-2/3 h-8 min-w-2/3 rounded-full p-5 focus:outline-none"
+            title="Destination URL"
+            placeholder="search anything..."
+            onkeydown={onEnterKeyPressed(startProxy)}
+            {@attach (urlBar: HTMLInputElement) => {
+                urlBar.focus();
+            }}
+            bind:value={destinationInput}
+        />
+        <button
+            class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
+            title="Start proxy"
+            onclick={startProxy}
+            disabled={proxyManager.proxyUrl === "" ||
+                !proxyManager.serviceWorker}><Search class="scale-95" /></button
+        >
+        <button
+            class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
+            title="Open Settings"
+            onclick={() => (isConfigOpen = true)}
+            ><Settings2 class="scale-95" /></button
+        >
+        <button
+            class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
+            title="Get Help"
+            onclick={window.open.bind(
+                window,
+                "https://github.com/adurite-network/ethereal/issues/new",
+            )}><MessageCircleQuestionMark class="scale-95" /></button
+        >
+    </div>
 {:else}
     <Config bind:isConfigOpen></Config>
-    <div class="w-screen h-screen flex flex-col items-center p-10 gap-[5vh]">
-        <picture class="w-3/4 min-w-60 max-h-1/3 grow-1">
-            <source
-                srcset="img/corn-dark.svg"
-                media="(prefers-color-scheme: dark)"
-                class="w-full h-full"
-            />
-            <img
-                class="w-full h-full"
-                src="img/corn.svg"
-                alt="Corn Unblocked"
-            />
-        </picture>
-        <div
-            class="flex flex-col grow-1 gap-[5vh] w-full items-center justify-center"
+
+    <div
+        class="flex grow-1 bottom-0 fixed w-full bg-transparent h-[9%] items-center justify-center"
+    >
+    <button
+            class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-0 mr-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
+            title="Start proxy"
+            onclick={() => setUrl(proxyHistory.goBackward())}
+            ><ArrowLeft class="scale-95 transition-all" /></button
+        > 
+    <button
+            class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-0 mr-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
+            title="Start proxy"
+            onclick={() => setUrl(proxyHistory.goForward())}
+            ><ArrowRight class="scale-95 transition-all" /></button
+        >    
+    <button
+            class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-0 mr-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
+            title="Start proxy"
+            onclick={() => iframe.contentWindow.location.reload()}
+            ><RotateCw class="scale-95 transition-all" /></button
         >
-            <input
-                type="text"
-                class="input w-1/2 min-w-40"
-                title="Destination URL"
-                placeholder="Enter a URL or search the web"
-                onkeydown={onEnterKeyPressed(startProxy)}
-                {@attach (urlBar: HTMLInputElement) => {
-                    urlBar.focus();
-                }}
-                bind:value={destinationInput}
-            />
-            <span
-                class="tooltip w-1/8 min-w-30"
-                data-tip={proxyManager.proxyUrl === ""
-                    ? "Proxy URL not found! Go to settings and configure proxy server"
-                    : !proxyManager.serviceWorker
-                      ? "Service worker not ready! Please wait"
-                      : ""}
-            >
-                <button
-                    class="btn w-1/1 pointer-events-auto"
-                    title="Start proxy"
-                    onclick={startProxy}
-                    disabled={proxyManager.proxyUrl === "" ||
-                        !proxyManager.serviceWorker}>Start</button
-                >
-            </span>
-        </div>
-        <div class="flex flex-row w-1/3 min-w-40 justify-evenly">
-            <button
-                class="btn w-4/9"
-                title="Open settings"
-                onclick={() => (isConfigOpen = true)}
-            >
-                Settings
-            </button>
-            <button
-                class="btn w-4/9"
-                title="Usage help"
-                onclick={window.open.bind(
-                    window,
-                    "https://sites.google.com/view/cornunblocked/help/usage",
-                )}
-            >
-                Help
-            </button>
-        </div>
-        <footer class="mt-10 text-xs text-center">
-            ©2025 Corn Unblocked under the <a
-                href="https://github.com/corn-unblocked/cornng-frontend/blob/master/LICENSE"
-                >GNU AGPL v3.0</a
-            >
-        </footer>
+        <input
+            type="text"
+            class="input max-w-2/3 h-8 min-w-2/3 rounded-full p-5 focus:outline-none"
+            title="Destination URL"
+            placeholder="search anything..."
+            onkeydown={onEnterKeyPressed(startProxy)}
+            {@attach (urlBar: HTMLInputElement) => {
+                urlBar.focus();
+            }}
+            bind:value={destinationInput}
+        />
+        <button
+            class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
+            title="Start proxy"
+            onclick={startProxy}
+            disabled={proxyManager.proxyUrl === "" ||
+                !proxyManager.serviceWorker}><Search class="scale-95" /></button
+        >
+        <button
+            class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
+            title="Open Settings"
+            onclick={() => (isConfigOpen = true)}
+            ><Settings2 class="scale-95" /></button
+        >
+        <button
+            class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
+            title="Get Help"
+            onclick={window.open.bind(
+                window,
+                "https://github.com/adurite-network/ethereal/issues/new",
+            )}><MessageCircleQuestionMark class="scale-95" /></button
+        >
     </div>
+    <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-4/5 items-center text-center">
+        <h1 class="text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-300">ethereal</h1>
+        <p>a sleek proxy with speed, design, and usability in mind.</p>
+    </div>
+{/if}
+{#if !iframeHasLoaded}
+    <span
+        class="loading loading-spinner scale-75 loading-xl ml-[-3%] mb-[0%] mr-1 z-1000 transition-all"
+    ></span>
 {/if}

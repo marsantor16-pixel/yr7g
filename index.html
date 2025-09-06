@@ -3,9 +3,20 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" href="logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Corn Unblocked</title>
+    <title>ethereal</title>
+    <style>
+        body, html {
+            background: #0d1117;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+        * {
+            font-family: "Inter";
+        }
+    </style>
 </head>
 
 <body>
@@ -15,7 +26,7 @@
     <div id="app"></div>
     <script type="module" lang="ts">
         import App from './src/App.svelte';
-        import proxyManager from "./src/proxy.svelte.ts";
+        import proxyManager from "./src/proxy.svelte";
         import './src/app.css';
         import { mount } from "svelte";
 
