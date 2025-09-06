@@ -13,7 +13,7 @@
         RotateCw,
         ArrowRight,
         ArrowLeft,
-        AppWindow
+        X
     } from "@lucide/svelte";
 
     $effect(() => {
@@ -98,19 +98,19 @@
     >
     <button
             class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-0 mr-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
-            title="Start proxy"
+            title="Previous Page"
             onclick={() => setUrl(proxyHistory.goBackward())}
             ><ArrowLeft class="scale-95 transition-all" /></button
         > 
     <button
             class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-0 mr-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
-            title="Start proxy"
+            title="Next Page"
             onclick={() => setUrl(proxyHistory.goForward())}
             ><ArrowRight class="scale-95 transition-all" /></button
         >    
     <button
             class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-0 mr-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
-            title="Start proxy"
+            title="Refresh Page"
             onclick={() => iframe.contentWindow.location.reload()}
             ><RotateCw class="scale-95 transition-all" /></button
         >
@@ -146,6 +146,11 @@
                 "https://github.com/adurite-network/ethereal/issues/new",
             )}><MessageCircleQuestionMark class="scale-95" /></button
         >
+        <button
+        class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
+        title="End Proxy"
+        onclick={() => (proxyManager.isProxyOpen = false)}><X class="scale-95" /></button
+    >
     </div>
 {:else}
     <Config bind:isConfigOpen></Config>
@@ -155,19 +160,19 @@
     >
     <button
             class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-0 mr-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
-            title="Start proxy"
+            title="Previous Page"
             onclick={() => setUrl(proxyHistory.goBackward())}
             ><ArrowLeft class="scale-95 transition-all" /></button
         > 
     <button
             class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-0 mr-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
-            title="Start proxy"
+            title="Next Page"
             onclick={() => setUrl(proxyHistory.goForward())}
             ><ArrowRight class="scale-95 transition-all" /></button
         >    
     <button
             class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-0 mr-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
-            title="Start proxy"
+            title="Refresh Page"
             onclick={() => iframe.contentWindow.location.reload()}
             ><RotateCw class="scale-95 transition-all" /></button
         >
