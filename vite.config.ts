@@ -16,7 +16,7 @@ export default defineConfig({
     viteStaticCopy({
       targets: [
         {
-          src: uvPath + "*/.js",
+          src: uvPath + "/*.js",
           dest: "uv",
           overwrite: false, // preserve our custom uv.config.js
         },
