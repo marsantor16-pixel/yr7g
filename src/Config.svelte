@@ -48,9 +48,9 @@
     onclose={() => (isConfigOpen = false)}
 >
     <div
-        class="modal-box flex flex-col items-center gap-5 h-3/5 rounded-3xl bg-zinc-900"
+        class="modal-box flex flex-col items-center gap-5 h-6/8 rounded-3xl bg-zinc-900"
     >
-        <p class="text-4xl font-extrabold">Settings</p>
+        <p class="text-4xl font-extrabold mt-4">preferences</p>
         <div class="flex flex-col items-center grow-1 justify-center w-1/1">
             <div class="grid grid-cols-2 gap-5 w-1/1">
                 <p class="flex items-center justify-center">wisp or bare?</p>
@@ -58,7 +58,7 @@
                     <div
                         tabindex="0"
                         role="button"
-                        class="btn w-1/1 rounded-xl bg-zinc-800"
+                        class="btn w-1/1 rounded-xl bg-zinc-800 shadow-none border-none hover:shadow-none hover:border-none hover:bg-zinc-700 transition-all"
                     >
                         {config.useBare ? "Bare" : "Wisp"}
                     </div>
@@ -72,7 +72,7 @@
                                     (
                                         document.activeElement as HTMLElement
                                     ).blur();
-                                }}>Wisp</button
+                                }}>wisp</button
                             >
                         </li>
                         <li>
@@ -82,17 +82,17 @@
                                     (
                                         document.activeElement as HTMLElement
                                     ).blur();
-                                }}>Bare</button
+                                }}>bare</button
                             >
                         </li>
                     </ul>
                 </div>
                 <p class="flex items-center justify-center">wisp/bare server</p>
-                <div class="dropdown rounded-xl shadow-transparent bg-zinc-800">
+                <div class="dropdown rounded-xl shadow-transparent bg-zinc-800 shadow-none border-none hover:shadow-none hover:border-none transition-all">
                     <div
                         tabindex="0"
                         role="button"
-                        class="btn w-1/1 shadow-transparent rounded-xl bg-zinc-800"
+                        class="btn w-1/1 shadow-transparent rounded-xl bg-zinc-800 shadow-none border-none hover:shadow-none hover:border-none hover:bg-zinc-700 transition-all"
                     >
                         {config.useBare
                             ? bareProxyUrls[config.bareSelectedProxy]
@@ -121,7 +121,7 @@
                 </div>
                 {#if (config.useBare ? config.bareSelectedProxy : config.wispSelectedProxy) === "custom"}
                     <p class="flex items-center justify-center">
-                        Custom Proxy URL
+                        custom proxy url
                     </p>
                     <input
                         class="input w-1/1 text-center bg-zinc-800 rounded-xl"
@@ -185,7 +185,7 @@
                 <p class="flex items-center justify-center">about:blank</p>
                 <div class="flex items-center justify-center">
                     <button
-                        class="btn rounded-xl bg-zinc-800 w-full"
+                        class="btn rounded-xl bg-zinc-800 w-full shadow-none border-none hover:shadow-none hover:border-none hover:bg-zinc-700 transition-all"
                         onclick={() => {
                             var win = window.open()
                             const url = "https://etherealproxy.netlify.app/"
@@ -205,8 +205,8 @@
             </div>
         </div>
         <button
-            class="btn rounded-xl bg-zinc-800"
-            onclick={() => (isConfigOpen = false)}>Close</button
+            class="btn rounded-xl bg-zinc-800 shadow-none border-none hover:shadow-none hover:border-none hover:scale-105 transition-all"
+            onclick={() => (isConfigOpen = false)}>close</button
         >
     </div>
     <form method="dialog" class="modal-backdrop">

@@ -24,6 +24,8 @@
         }
     });
 
+    let urlBar: HTMLInputElement = $state();
+
     $effect(() => {
         proxyManager.setProxyServer(proxyManager.proxyUrl);
     });
@@ -35,7 +37,7 @@
     function startProxy() {
         if (proxyManager.startProxy(destinationInput)) {
             destinationInput = "";
-
+            console.log("proxy started")
         }
     }
 
@@ -44,7 +46,7 @@
 
     let iframe: HTMLIFrameElement = $state();
 
-    const searchbar = document.getElementById("searchbar") as HTMLInputElement
+    let searchbar: HTMLInputElement = $state()
 
     const iframeAllow =
         "accelerometer ambient-light-sensor attribution-reporting autoplay bluetooth browsing-topics camera compute-pressure " +
@@ -65,11 +67,15 @@
         if (!src.includes(proxyManager.uvConfig.prefix)) return;
 
         iframeHasLoaded = true;
+                    
+        if (searchbar) {
+            searchbar.value = proxyManager.url
+            console.log("Set Value: " + proxyManager.url)
+        }
 
         proxyManager.url = proxyManager.uvConfig.decodeUrl(
             src.slice(proxyManager.uvConfig.prefix.length),
         );
-
     }
 
     let proxyHistory = new History();
@@ -90,7 +96,7 @@
             bind:this={iframe}
             title="Proxy"
             class="w-full h-[91vh] bg-transparent rounded-b-2xl shadow-lg shadow-black/20"
-            src={proxyManager.iframeUrl || "https://google.com/"}
+            src={proxyManager.iframeUrl}
             onload={onIframeLoad}
             allow={iframeAllow}
             sandbox={iframeSandbox}
@@ -121,12 +127,13 @@
         >
         <input
             type="text"
-            class="input max-w-2/3 h-8 min-w-2/3 rounded-full p-5 focus:outline-none"
+            class="input max-w-2/3 h-8 min-w-2/3 rounded-full focus:shadow-none focus:border-none focus:brightness-125 transition-all p-5 focus:outline-none outline-none border-none shadow-none"
             title="Destination URL"
             id="searchbar"
-            placeholder="search anything..."
-            onkeydown={onEnterKeyPressed(startProxy)}
+            placeholder="loading, please wait. this may take some time."
             bind:value={destinationInput}
+            bind:this={searchbar}
+            onkeydown={onEnterKeyPressed(startProxy)}
         />
         <span
             class="loading loading-spinner scale-75 loading-xl ml-[-3.5%] mb-[0%] mr-1.5 z-1000 transition-all" style="display: none;" bind:this={loader}>
@@ -184,9 +191,8 @@
         >
         <input
             type="text"
-            class="input max-w-2/3 h-8 min-w-2/3 rounded-full p-5 focus:outline-none"
+            class="input max-w-2/3 h-8 min-w-2/3 rounded-full p-5 focus:outline-none focus:shadow-none focus:border-none focus:brightness-125 transition-all outline-none shadow-none border-none"
             title="Destination URL"
-            id="searchbar"
             placeholder="search anything..."
             onkeydown={onEnterKeyPressed(startProxy)}
             {@attach (urlBar: HTMLInputElement) => {
