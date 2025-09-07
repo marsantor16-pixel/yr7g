@@ -160,6 +160,10 @@ wait and you're done.
 <sub> [(back to the top)](#readme-top)</sub>
 
 ### local deployment
+
+> [!CAUTION]
+> The build step will fail 11 times out of 10 on Windows computers. Use an environment that is Unix based or an IDE like that (like Firebase Studio)
+
 first, clone the repository by running this command
 ```bash
 git clone https://github.com/adurite-network/ethereal
