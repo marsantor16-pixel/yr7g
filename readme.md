@@ -130,7 +130,7 @@ then install fb tools
 pnpm i -g firebase-tools
 ```
 
-now initialize a project with hosting (be sure to change project name in .firebasesrc)
+now initialize a project with hosting (be sure to change project name in .firebaserc)
 
 ```bash
 firebase init hosting
