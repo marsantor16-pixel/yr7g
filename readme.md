@@ -162,7 +162,7 @@ wait and you're done.
 ### local deployment
 
 > [!CAUTION]
-> The build step will fail 11 times out of 10 on Windows computers. Use an environment that is Unix based or an IDE like that (like Firebase Studio)
+> building with vite will fail 11 times out of 10 on windows systems. if you are locally deploying this, we strongly recommend using a unix based environment or an ide with a unix based environment (e.g. firebase studio, formerly project idx)
 
 first, clone the repository by running this command
 ```bash
