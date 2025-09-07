@@ -112,7 +112,7 @@ you can deploy to any static host basically, including the following
 you could also use the dedicated buttons below for deployments
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=github.com%2Ftenclips%2Fethereal&project-name=ethereal-proxy&repository-name=ethereal-proxy&demo-title=preview%20the%20website%20here&demo-description=a%20demo%20of%20this%20proxy&demo-url=https%3A%2F%2Fetherealproxy.netlify.app%2F&demo-image=https%3A%2F%2Fraw.githubusercontent.com%2Ftenclips%2Fethereal%2Frefs%2Fheads%2Fmaster%2F.github%2Fbranding%2Flogo.png%3Ftoken%3DGHSAT0AAAAAADJMSCMGTUNVM2X2UIB5P3JS2F3FAIQ)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify/netlify-statuskit)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/tenclips/ethereal)
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/tenclips/ethereal)
 
