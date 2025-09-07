@@ -111,10 +111,10 @@ you can deploy to any static host basically, including the following
 
 you could also use the dedicated buttons below for deployments
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=github.com%2Fadurite-network%2Fethereal&project-name=ethereal-proxy&repository-name=ethereal-proxy&demo-title=preview%20the%20website%20here&demo-description=a%20demo%20of%20this%20proxy&demo-url=https%3A%2F%2Fetherealproxy.netlify.app%2F&demo-image=https%3A%2F%2Fraw.githubusercontent.com%2Fadurite-network%2Fethereal%2Frefs%2Fheads%2Fmaster%2F.github%2Fbranding%2Flogo.png%3Ftoken%3DGHSAT0AAAAAADJMSCMGTUNVM2X2UIB5P3JS2F3FAIQ)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=github.com%2Ftenclips%2Fethereal&project-name=ethereal-proxy&repository-name=ethereal-proxy&demo-title=preview%20the%20website%20here&demo-description=a%20demo%20of%20this%20proxy&demo-url=https%3A%2F%2Fetherealproxy.netlify.app%2F&demo-image=https%3A%2F%2Fraw.githubusercontent.com%2Ftenclips%2Fethereal%2Frefs%2Fheads%2Fmaster%2F.github%2Fbranding%2Flogo.png%3Ftoken%3DGHSAT0AAAAAADJMSCMGTUNVM2X2UIB5P3JS2F3FAIQ)
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify/netlify-statuskit)
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/adurite-network/ethereal)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/tenclips/ethereal)
 
 if you don't know how to deploy to firebase or github pages, follow the guides below.
 
@@ -122,7 +122,7 @@ if you don't know how to deploy to firebase or github pages, follow the guides b
 
 first, clone the repo by running
 ```bash
-git clone https://github.com/adurite-network/ethereal
+git clone https://github.com/tenclips/ethereal
 ```
 
 then install fb tools
@@ -144,7 +144,7 @@ firebase deploy
 #### github pages
 first, either fork or clone this repo
 ```bash
-git clone https://github.com/adurite-network/ethereal
+git clone https://github.com/tenclips/ethereal
 ```
 
 if you cloned, initialize a repo on github by uploading it or using the initialize button in vscode source control.
@@ -166,7 +166,7 @@ wait and you're done.
 
 first, clone the repository by running this command
 ```bash
-git clone https://github.com/adurite-network/ethereal
+git clone https://github.com/tenclips/ethereal
 cd ethereal
 ```
 
