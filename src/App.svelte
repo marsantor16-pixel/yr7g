@@ -1,3 +1,5 @@
+// Type correct fifti too owns this whole project :)
+
 <script lang="ts">
     import Config from "./Config.svelte";
     import Proxy from "./Proxy.svelte";
