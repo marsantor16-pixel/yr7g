@@ -1,6 +1,5 @@
-// App.svelte
-
 <script lang="ts">
+    // App.svelte -- basically index.html
     import Config from "./Config.svelte";
     import Proxy from "./Proxy.svelte";
     import config from "./config.svelte";
