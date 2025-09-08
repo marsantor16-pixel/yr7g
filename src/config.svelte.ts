@@ -23,7 +23,7 @@ export class Config {
     public theme: string = $state("")
     // auto detect proxy timeout (ms)
     public probeTimeout: number = $state(5000);
-    public adblock: boolean = $state(false);
+    public adblock: boolean = $state(true);
 }
 
 export function saveConfig(cfg: Config): void {
