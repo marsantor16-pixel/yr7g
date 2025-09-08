@@ -56,7 +56,7 @@
         "storage-access usb web-share window-management xr-spatial-tracking";
 
     const iframeSandbox =
-        "allow-popups allow-popups-to-escape-sandbox allow-downloads allow-forms allow-modals allow-orientation-lock " +
+        "allow-popups allow-downloads allow-forms allow-modals allow-orientation-lock " +
         "allow-pointer-lock allow-presentation allow-same-origin allow-scripts allow-storage-access-by-user-activation";
 
     function onIframeLoad() {
