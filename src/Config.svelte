@@ -52,7 +52,7 @@
     onclose={() => (isConfigOpen = false)}
 >
     <div
-        class="modal-box flex flex-col items-center gap-5 h-6/8 rounded-3xl bg-zinc-900"
+        class="modal-box flex flex-col items-center gap-5 h-7/8 rounded-3xl bg-zinc-900"
     >
         <p class="text-4xl font-extrabold mt-4">preferences</p>
         <div class="flex flex-col items-center grow-1 justify-center w-1/1">
