@@ -1,4 +1,4 @@
-// Type correct twenti fiyv owns this whole project :)
+// App.svelte
 
 <script lang="ts">
     import Config from "./Config.svelte";
