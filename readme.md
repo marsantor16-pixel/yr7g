@@ -31,13 +31,13 @@
 ## about
 ### features
 - ultraviolet
-- cloaks
+- super fast speeds
+- tab title cloaking
+- icon cloaking
 - about:blank cloaking
 - server selection
 - theming
-- sidebar location selection
 - super customisable
-- fast
 - support for popular sites
 - support for emulators
 
@@ -45,7 +45,7 @@
 
 ### proxy support
 - easyfun.gg (now.gg alternative)
-- youtube
+- youtube/tiktok
 - github
 - geforce now (partial)
 - emulatorjs
@@ -61,6 +61,7 @@ a lot of things can be customised on this website, including the following
 
 - favicon
 - tab title
+- colors
 - wisp server
 - bare server
 - wisp or bare (toggle)
@@ -71,11 +72,12 @@ a lot of things can be customised on this website, including the following
 <sub> [(back to the top)](#readme-top)</sub>
 
 ### roadmap
-1. add scramjet support
-2. add support for extension killing (e.g. stopping goguardian)
-3. add themes
-4. add auto a:b and blob:
-5. get custom domain
+1. add tabbing
+2. add bookmarks
+3. add scramjet support
+4. add auto cloaking
+5. add support via netlify (on-site form)
+6. get a domain (e.g. ethereal.net)
 
 more will be added soon.
 
@@ -211,9 +213,9 @@ pnpm dev
 ## credits
 made with <3 by cl1pped
 
-thanks to corn unblocked for making uv completely static
+thanks to corn unblocked and zeroxoneafour for making ultraviolet completely static
 
-uv made by titanium network
+thank you to titanium network and mercury workshop for ultraviolet, scramjet (support soon!), libcurl, epoxy, wisp, and more.
 
 and thank you to all the contributors.
 
