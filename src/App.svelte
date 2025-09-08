@@ -221,7 +221,7 @@
             title="Get Help"
             onclick={window.open.bind(
                 window,
-                "https://github.com/adurite-network/ethereal/issues/new",
+                "https://github.com/tenclips/ethereal/issues/new?template=bug-report.md",
             )}><MessageCircleQuestionMark class="scale-95" /></button
         >
     </div>
