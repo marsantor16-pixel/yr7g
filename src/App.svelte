@@ -160,7 +160,7 @@
             )}><MessageCircleQuestionMark class="scale-95" /></button
         >
         <button
-        class="btn-circle bg-blue-500 p-2 text-sm m-0 ml-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
+        class="btn-circle bg-red-500 p-2 text-sm m-0 ml-2 cursor-pointer pointer-events-auto hover:brightness-75 transition-all"
         title="End Proxy"
         onclick={() => (proxyManager.isProxyOpen = false)}><X class="scale-95" /></button
     >

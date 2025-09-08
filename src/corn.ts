@@ -60,3 +60,10 @@ export const splashText = [
     "Made with love by zeroxoneafour",
     "How's Ivey still alive bro",
 ];
+
+export const themes = {
+    "#2b7fff": "default blue",
+    "#2e8a57": "forest green",
+    "#ff8a05": "blazing orange",
+    "#ff8da1": "rose",
+}

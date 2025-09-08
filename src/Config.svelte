@@ -1,6 +1,6 @@
 <script lang="ts">
     import config, { saveConfig } from "./config.svelte";
-    import { bareProxyUrls, wispProxyUrls } from "./corn";
+    import { bareProxyUrls, wispProxyUrls, themes } from "./corn";
     import proxyManager, { ServiceWorkerConfig } from "./proxy.svelte";
 
     let { isConfigOpen = $bindable() }: { isConfigOpen: boolean } = $props();
@@ -39,6 +39,10 @@
     if (titleInput && faviconInput) {
         titleInput.value = localStorage.getItem("tabTitle");
         faviconInput.value = localStorage.getItem("faviconUrl");
+    }
+
+    if (document) {
+        window.document.documentElement.style.setProperty("--color-blue-500", localStorage.getItem("theme") || "#2b7fff")
     }
 </script>
 
@@ -201,6 +205,32 @@
                             win.document.body.appendChild(iframe)
                         }}>open a:b</button
                     >
+                </div>
+                <p class="flex items-center justify-center">theme</p>
+                <div class="dropdown rounded-xl shadow-transparent bg-zinc-800 shadow-none border-none hover:shadow-none hover:border-none transition-all">
+                    <div
+                        tabindex="0"
+                        role="button"
+                        class="btn w-1/1 shadow-transparent rounded-xl bg-zinc-800 shadow-none border-none hover:shadow-none hover:border-none hover:bg-zinc-700 transition-all"
+                    >
+                        { localStorage.getItem("themeName") || "default blue" }
+                    </div>
+                    <ul
+                        class="dropdown-content rounded-xl menu bg-zinc-800 rounded-box p-2 w-1/1 block overflow-y-scroll max-h-30"
+                    >
+                        {#each Object.entries(themes) as [hex, name]}
+                            <li>
+                                <button
+                                    onclick={() => { 
+                                        window.document.documentElement.style.setProperty("--color-blue-500", hex);
+                                        localStorage.setItem("theme", hex)
+                                        localStorage.setItem("themeName", name)
+                                        window.location.reload()
+                                    }}>{name}</button
+                                >
+                            </li>
+                        {/each}
+                    </ul>
                 </div>
             </div>
         </div>

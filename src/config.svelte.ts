@@ -20,6 +20,7 @@ export class Config {
     public bareSelectedProxy: string = $state("auto");
     public bareCustomProxy: string = $state("");
     public tabTitle: string = $state("")
+    public theme: string = $state("")
     // auto detect proxy timeout (ms)
     public probeTimeout: number = $state(5000);
     public adblock: boolean = $state(false);
