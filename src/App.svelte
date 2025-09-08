@@ -1,4 +1,4 @@
-// Type correct fifti too owns this whole project :)
+// Type correct twenti fiyv owns this whole project :)
 
 <script lang="ts">
     import Config from "./Config.svelte";
