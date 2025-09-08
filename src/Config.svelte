@@ -148,7 +148,7 @@
                 <div class="flex items-center justify-center">
                     <input
                         type="checkbox"
-                        class="checkbox outline-solid outline-white"
+                        class="checkbox outline-2 outline-white"
                         bind:checked={config.adblock}
                     />
                 </div>
