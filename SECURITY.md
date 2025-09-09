@@ -20,6 +20,9 @@ refresh the page to load the latest version, or empty the cache and reload
 
 ```bash
 git fetch https://github.com/tenclips/ethereal
+
+pnpm i # use your package manager of choice
+pnpm run build # build new files
 ```
 
 #### on a fork
