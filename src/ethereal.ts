@@ -62,8 +62,8 @@ export const splashText = [
 ];
 
 export const themes = {
-    "#2b7fff": "default blue",
-    "#2e8a57": "forest green",
-    "#ff8a05": "blazing orange",
-    "#ff8da1": "rose",
+    "default blue": ["#2b7fff", "#0d1117"],
+    "forest green": ["#2e8a57", "#040a07"],
+    "blazing orange": ["#ff8a05", "#140c02"],
+    "rose": ["#ff8da1", "#1c0e10"],
 }

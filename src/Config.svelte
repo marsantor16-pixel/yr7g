@@ -1,6 +1,6 @@
 <script lang="ts">
     import config, { saveConfig } from "./config.svelte";
-    import { bareProxyUrls, wispProxyUrls, themes } from "./corn";
+    import { bareProxyUrls, wispProxyUrls, themes } from "./ethereal";
     import proxyManager, { ServiceWorkerConfig } from "./proxy.svelte";
 
     let { isConfigOpen = $bindable() }: { isConfigOpen: boolean } = $props();
@@ -43,6 +43,7 @@
 
     if (document) {
         window.document.documentElement.style.setProperty("--color-blue-500", localStorage.getItem("theme") || "#2b7fff")
+        window.document.documentElement.style.setProperty("--color-slate-950", localStorage.getItem("bgColor") || "#2b7fff")
     }
 </script>
 
@@ -218,13 +219,15 @@
                     <ul
                         class="dropdown-content rounded-xl menu bg-zinc-800 rounded-box p-2 w-1/1 block overflow-y-scroll max-h-30"
                     >
-                        {#each Object.entries(themes) as [hex, name]}
+                        {#each Object.entries(themes) as [name, [hex, bg]]}
                             <li>
                                 <button
                                     onclick={() => { 
                                         window.document.documentElement.style.setProperty("--color-blue-500", hex);
+                                        window.document.documentElement.style.setProperty("--color-slate-950", bg);
                                         localStorage.setItem("theme", hex)
                                         localStorage.setItem("themeName", name)
+                                        localStorage.setItem("bgColor", bg)
                                         window.location.reload()
                                     }}>{name}</button
                                 >

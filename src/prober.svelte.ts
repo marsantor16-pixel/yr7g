@@ -1,4 +1,4 @@
-import { bareProxyUrls, wispProxyUrls } from "./corn";
+import { bareProxyUrls, wispProxyUrls } from "./ethereal";
 import config from "./config.svelte";
 
 class Prober {
