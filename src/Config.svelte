@@ -43,7 +43,7 @@
 
     if (document) {
         window.document.documentElement.style.setProperty("--color-blue-500", localStorage.getItem("theme") || "#2b7fff")
-        window.document.documentElement.style.setProperty("--color-slate-950", localStorage.getItem("bgColor") || "#2b7fff")
+        window.document.documentElement.style.setProperty("--color-slate-950", localStorage.getItem("bgColor") || "#0d1117")
     }
 </script>
 
