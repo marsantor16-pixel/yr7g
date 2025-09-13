@@ -2,6 +2,10 @@
   <img src=".github/branding/logo.png" height="150px"></img>
 </p>
 <h1 align="center" id="readme-top">ethereal.</h1>
+<p align="center">
+  <sup align="center"><i>/iˈTHirēəl/</i></sup><br>
+<sub align="center"><i>/uh-thee-ree-uhl/</i></sub>
+</p>
 <p align="center">a sleek proxy with speed, design, and usability in mind. easy to deploy to any static host.</p>
 
 <p align="center">
