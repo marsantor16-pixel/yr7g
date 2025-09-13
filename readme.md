@@ -100,7 +100,28 @@ same thing as above
 <sub> [(back to the top)](#readme-top)</sub>
 
 ## faq
-coming soon
+#### q: what do i do if it fails to load?
+a: hard refresh (ctrl/cmd + shift + r) and try again. if the issue persists, please report it.
+
+#### q: why doesn't this work on windows?
+a: this is discussed in local deployment. it's because the build scripts only work on linux for some reason.
+
+#### q: why is it so slow?
+a: depends on your network and traffic. if lots of people are proxying things or your network is slow, it will take lots of time to load.
+
+#### q: why do none of your websites work?
+a: if you are using a site such as easyfun.gg, and it isn't working, that isn't our problem. go report it to them instead.
+
+#### q: why won't cloudflare turnstile load?
+a: it thinks you are a bot.
+
+#### q: why is youtube blocking me?
+a: it thinks you are a bot.
+
+#### q: why can't i watch full youtube videos? this sucks.
+a: this is because youtube still thinks you are a bot.
+
+<sub>*this is a live document and is subject to change</sub>
 
 <sub> [(back to the top)](#readme-top)</sub>
 
