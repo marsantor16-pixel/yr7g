@@ -193,7 +193,7 @@
                         class="btn rounded-xl bg-zinc-800 w-full shadow-none border-none hover:shadow-none hover:border-none hover:bg-zinc-700 transition-all"
                         onclick={() => {
                             var win = window.open()
-                            const url = "https://etherealproxy.netlify.app/"
+                            const url = window.location.href || "https://etherealproxy.netlify.app"
 
                             win.document.body.style.margin = 0
                             win.document.body.style.height = "100vh"
