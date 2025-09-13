@@ -236,7 +236,7 @@ pnpm dev
 <sub> [(back to the top)](#readme-top)</sub>
 
 ## credits
-made with <3 by cl1pped
+made with <3 by x8r
 
 thanks to corn unblocked and zeroxoneafour for making ultraviolet completely static
 
@@ -246,4 +246,4 @@ and thank you to all the contributors.
 
 <sub> [(back to the top)](#readme-top)</sub>
 
-<sub><sub></sub>alr have a nice day<sub></sub></sub>
+<sub><sup>alr have a nice day</sup></sub>
